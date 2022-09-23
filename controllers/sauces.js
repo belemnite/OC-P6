@@ -3,7 +3,9 @@ const sauce = require('../models/sauce');
 const Sauce = require('../models/sauce');
 
 exports.createSauce = (req, res, next) => {
-  const sauceObject = JSON.parse(req.body.thing);
+  console.log("create sauce")
+  console.log(req.body)
+  const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
   delete sauceObject._userId;
   const sauce = new Sauce({
@@ -87,3 +89,10 @@ exports.getAllSauces = (req, res, next) => {
     }
   );
 };
+
+exports.likeDislike= (req, res, next) => {
+  console.log("like dislike");
+  console.log(req.body);
+  console.log(req.params);
+  res.status(200).json({message:"tester"});
+}
